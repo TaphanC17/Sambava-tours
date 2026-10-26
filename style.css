@@ -1,0 +1,452 @@
+/* ---------- Variables : les couleurs du site ---------- */
+:root {
+  --fond: #f8fafc;
+  --carte: #ffffff;
+  --texte: #1e293b;
+  --gris: #64748b;
+  --bordure: #e2e8f0;
+  --principal: #0d9488;
+  --principal-fonce: #0f766e;
+  --entete: #0f172a;
+}
+
+/* À FAIRE : Mode sombre : les variables qui changent quand le body reçoit la classe 'sombre' */
+
+/* ---------- Réglages de base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+.conteneur {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- En-tête ---------- */
+.entete {
+  background: var(--entete);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.barre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #2dd4bf;
+}
+
+.menu {
+  display: flex;
+  gap: 24px;
+}
+
+.menu a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.menu a:hover {
+  color: white;
+}
+
+.outils {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bouton-icone {
+  background: transparent;
+  color: white;
+  border: 1px solid #475569;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.bouton-icone:hover {
+  background: #1e293b;
+}
+
+.burger {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: white;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+/* ---------- Bannière ---------- */
+.hero {
+  background: linear-gradient(135deg, #0f172a, #115e59);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 44px;
+  margin-bottom: 14px;
+  animation: entree 0.8s ease both;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #cbd5e1;
+  margin-bottom: 28px;
+  min-height: 32px;
+}
+
+/* Le texte tapé par JavaScript, avec un curseur qui clignote */
+#machine {
+  color: #2dd4bf;
+  font-weight: bold;
+}
+
+#machine::after {
+  content: '|';
+  margin-left: 2px;
+  animation: clignote 0.9s infinite;
+}
+
+@keyframes clignote {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes entree {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+.bouton {
+  display: inline-block;
+  background: var(--principal);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.bouton:hover {
+  background: var(--principal-fonce);
+  transform: translateY(-3px);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 70px 0;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 36px;
+}
+
+.grille-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ---------- Cartes des destinations ---------- */
+.carte {
+  background: var(--carte);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1);
+}
+
+.photo {
+  height: 150px;
+}
+
+.photo.plage {
+  background: linear-gradient(135deg, #0ea5e9, #fde68a);
+}
+
+.photo.vanille {
+  background: linear-gradient(135deg, #78350f, #fbbf24);
+}
+
+.photo.foret {
+  background: linear-gradient(135deg, #14532d, #4ade80);
+}
+
+.contenu {
+  padding: 22px;
+}
+
+.contenu h3 {
+  margin-bottom: 8px;
+}
+
+.contenu p {
+  color: var(--gris);
+}
+
+/* ---------- Animation d'apparition : l'état de départ ---------- */
+.apparition {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s;
+}
+
+.grille-3 .apparition:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.grille-3 .apparition:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+/* À FAIRE : Apparition : l'état d'arrivée, quand JavaScript ajoute la classe 'visible' */
+.apparition.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+body.sombre {
+  --fond: #0f172a;
+  --carte:#1e293b;
+  --text:#f1f5f9;
+  --gris: #94a3b8;
+  --bordure: #334155;
+  --principal: #0d9488;
+  --principal-fonce: #0f766e;
+  --entete: #0f172a;
+}
+
+/* ---------- Bande de chiffres ---------- */
+.chiffres {
+  background: var(--principal);
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.chiffre {
+  display: block;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+/* ---------- FAQ (accordéon) ---------- */
+.faq {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 18px 22px;
+  cursor: pointer;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 24px;
+  color: var(--principal);
+  transition: transform 0.3s;
+}
+
+.faq-reponse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faq-reponse p {
+  padding: 0 22px 18px;
+  color: var(--gris);
+}
+.faq-reponse.ouverte {
+  max-height: 200px;
+}
+
+/* À FAIRE : Accordéon : l'état ouvert, quand JavaScript ajoute la classe 'ouvert' à un faq-item */
+.faq-item.ouvert .faq-reponse {
+  max-height: 200px;
+}
+
+.faq-item.ouvert .faq-question::after {
+  content: '-';
+}
+
+/* ---------- Pied de page ---------- */
+footer {
+  background: var(--entete);
+  color: #94a3b8;
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 14px;
+}
+
+/* ---------- Bouton retour en haut (bonus) ---------- */
+.haut {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--principal);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 30;
+}
+
+/* À FAIRE : Bonus : le bouton visible, quand JavaScript ajoute la classe 'visible' */
+.haut.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* ---------- Téléphone ---------- */
+@media (max-width: 800px) {
+  .burger {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--entete);
+    padding: 8px 20px 16px;
+  }
+
+  .menu a {
+    padding: 12px 0;
+    border-bottom: 1px solid #1e293b;
+  }
+
+/* À FAIRE : Menu mobile : l'état ouvert, quand JavaScript ajoute la classe 'ouvert' au menu */
+.menu.ouvert {
+  display: flex;
+}
+  .grille-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 70px 20px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+
+/* Titres des sections en mode sombre */
+body.sombre h2,
+body.sombre h3 {
+  color: var(--text);
+}
+#bouton-haut {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--principal);
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#bouton-haut {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+
+
+/* Flèche visible uniquement sur téléphone */
+#bouton-haut {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #bouton-haut {
+    display: flex;
+  }
+}

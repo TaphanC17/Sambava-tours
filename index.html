@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Sambava Tours - Découvrez la région SAVA</title>
+  <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+
+  <!-- En-tête : logo, menu, bouton de thème et bouton burger (mobile) -->
+  <header class='entete'>
+    <div class='conteneur barre'>
+      <a href='#accueil' class='logo'>Sambava<span>Tours</span></a>
+
+      <nav id='menu' class='menu'>
+        <a href='#destinations'>Destinations</a>
+        <a href='#chiffres'>En chiffres</a>
+        <a href='#faq'>Questions</a>
+      </nav>
+
+      <div class='outils'>
+        <button id='bouton-theme' class='bouton-icone'>Mode sombre</button>
+        <button id='bouton-burger' class='burger' aria-label='Ouvrir le menu'>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Bannière avec le texte « machine à écrire » -->
+  <section class='hero' id='accueil'>
+    <h1>Découvrez la région SAVA</h1>
+    <p>Partez à la rencontre des <span id='machine'>plantation de vanille</span></p>
+    <a href='#destinations' class='bouton'>Voir les destinations</a>
+  </section>
+
+  <!-- Destinations : les cartes apparaissent au défilement -->
+  <section class='section' id='destinations'>
+    <div class='conteneur'>
+      <h2 class='apparition'>Nos destinations</h2>
+      <div class='grille-3'>
+        <article class='carte apparition'>
+          <div class='photo plage'></div>
+          <div class='contenu'>
+            <h3>Plages de Sambava</h3>
+            <p>Sable clair, cocotiers et eau chaude pour une journée de détente.</p>
+          </div>
+        </article>
+        <article class='carte apparition'>
+          <div class='photo vanille'></div>
+          <div class='contenu'>
+            <h3>Plantations de vanille</h3>
+            <p>Découvrez comment la vanille pousse, se prépare et se sèche.</p>
+          </div>
+        </article>
+        <article class='carte apparition'>
+          <div class='photo foret'></div>
+          <div class='contenu'>
+            <h3>Randonnée en forêt</h3>
+            <p>Des sentiers au cœur de la nature, avec un guide local.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chiffres : les compteurs s'animent quand la section devient visible -->
+  <section class='chiffres' id='chiffres'>
+    <div class='conteneur grille-3'>
+      <div><span class='chiffre' data-cible='120'>0</span>circuits organisés</div>
+      <div><span class='chiffre' data-cible='8'>0</span>guides locaux</div>
+      <div><span class='chiffre' data-cible='350'>0</span>voyageurs accompagnés</div>
+    </div>
+  </section>
+
+  <!-- Questions fréquentes : accordéon -->
+  <section class='section' id='faq'>
+    <div class='conteneur'>
+      <h2 class='apparition'>Questions fréquentes</h2>
+      <div class='faq'>
+
+        <div class='faq-item apparition'>
+          <button class='faq-question'>Faut-il réserver à l'avance ?</button>
+          <div class='faq-reponse'>
+            <p>Oui, nous conseillons de réserver quelques jours avant pour garantir qu'un guide soit disponible.</p>
+          </div>
+        </div>
+
+        <div class='faq-item apparition'>
+          <button class='faq-question'>Quelle est la durée d'un circuit ?</button>
+          <div class='faq-reponse'>
+            <p>De une demi-journée à trois jours, selon la destination choisie.</p>
+          </div>
+        </div>
+
+        <div class='faq-item apparition'>
+          <button class='faq-question'>Les circuits conviennent-ils aux enfants ?</button>
+          <div class='faq-reponse'>
+            <p>Oui, les circuits de plage et de plantation sont adaptés aux familles.</p>
+          </div>
+        </div>
+
+        <div class='faq-item apparition'>
+          <button class='faq-question'>Comment payer ?</button>
+          <div class='faq-reponse'>
+            <p>Par mobile money ou en espèces, directement auprès de votre guide.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Sambava Tours · Sambava, région SAVA</p>
+  </footer>
+
+  <!-- Bouton « retour en haut » (bonus) -->
+   <button id="bouton-haut" aria-label="Retour en haut">
+  ↑
+</button>
+  <script src="script.js"></script>
+</body>
+</html>
